@@ -2,7 +2,7 @@ import Pyro4
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
-ns = Pyro4.locateNS()
+ns = Pyro4.locateNS(host='192.168.0.188')  # IP del servidor Pyro4 buscar la ip en ipconfig
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -17,5 +17,6 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
+
 
 
